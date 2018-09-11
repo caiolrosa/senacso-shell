@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "ls/ls.h"
+#include "commands/commands.h"
 #include "utils.h"
 
 #define true 1
@@ -16,11 +16,16 @@ void init() {
 
 void loop() {
     while(true) {
-        scanf("%[^\n]s", cmd);
+        printMessage();
+        cmd = readLine();
         char** cmdArray = splitString(cmd, " ");
         if (cmdArray == NULL) { continue; }
-        if (strcmp(cmdArray[0], "ls") == 0) { ls(cmdArray[1]); cmd = ""; }
-        printf("Finished executing");
+        if (strcmp(cmdArray[0], "ls") == 0 ) { ls(cmdArray[1]); }
+        if (strcmp(cmdArray[0], "cd") == 0 ) { cd(cmdArray[1]); }
+        if (strcmp(cmdArray[0], "pwd") == 0) { printf(""); pwd(); }
+        if (strcmp(cmdArray[0], "clear") == 0) { clear(); }
+        free(cmdArray);
+        free(cmd);
     }
 }
 
