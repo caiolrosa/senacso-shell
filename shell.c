@@ -23,6 +23,10 @@ void loop() {
         if (strcmp(cmdArray[0], "ls") == 0 ) { ls(cmdArray[1]); }
         if (strcmp(cmdArray[0], "cd") == 0 ) { cd(cmdArray[1]); }
         if (strcmp(cmdArray[0], "pwd") == 0) { printf(""); pwd(); }
+        if (strcmp(cmdArray[0], "mkdir") == 0) { createDirectory(cmdArray[1]); }
+        if (strcmp(cmdArray[0], "rm") == 0) { rm(cmdArray[1]); }
+        if (strcmp(cmdArray[0], "rmf") == 0) { rmf(cmdArray[1]); }
+        if (strcmp(cmdArray[0], "touch") == 0) { touch(cmdArray[1]); }
         if (strcmp(cmdArray[0], "clear") == 0) { clear(); }
         free(cmdArray);
         free(cmd);
